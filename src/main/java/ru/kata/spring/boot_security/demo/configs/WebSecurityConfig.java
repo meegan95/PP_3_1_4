@@ -24,11 +24,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/auth/login", "/auth/registration", "/error").permitAll()
+                .antMatchers(
+//                        "/auth/login",
+                        "/auth/registration", "/error").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().hasAnyRole("ADMIN", "USER")
                 .and()
-                .formLogin().loginPage("/auth/login")
+//                .formLogin().loginPage("/auth/login")
+                .formLogin()
                 .loginProcessingUrl("/process_login")
                 .successHandler(successUserHandler)
                 .failureUrl("/auth/login?error")
