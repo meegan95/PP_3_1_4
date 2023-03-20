@@ -28,7 +28,9 @@ public class AdminCreator {
             HashSet<Role> roles = new HashSet<>();
             roles.add(new Role("ROLE_ADMIN"));
             roles.add(new Role("ROLE_USER"));
-            usersRepository.save(new User("admin", 1999, "admin", roles));
+//                public User(String username, int age, String password, String firstName, String lastName, Set<Role> roles)
+            usersRepository.save(new User("admin@admin.com", 1999,
+                    "admin", "John","Snow", roles));
         } catch (Exception e) {/*ignore*/}
     }
     @Bean
@@ -36,7 +38,8 @@ public class AdminCreator {
         try {
             HashSet<Role> roles = new HashSet<>();
             roles.add(new Role("ROLE_USER"));
-            usersRepository.save(new User("user", 1999, "user", roles));
+            usersRepository.save(new User("user@user.com", 1999,
+                    "user","Spider","Man", roles));
         } catch (Exception e) {/*ignore*/}
     }
 }

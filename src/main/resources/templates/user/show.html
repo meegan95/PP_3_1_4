@@ -6,8 +6,10 @@
     <title>Страница пользователя</title>
 </head>
 <body>
-Имя пользователя и год рождения:
-<p th:text="${user.getUsername() + ' ' + user.getYearOfBirth()}">VALUE</p>
+Почта пользователя и возраст:
+<p th:text="${user.getUsername() + ' ' + user.getAge()}">VALUE</p>
+Имя и фамилия:
+<p th:text="${user.getFirstName() + ' ' + user.getLastName()}">VALUE</p>
 Порядковый номер пользователя(id):
 <p th:text="${user.getId()}">VALUE</p>
 <form th:action="@{/logout}" th:method="POST">

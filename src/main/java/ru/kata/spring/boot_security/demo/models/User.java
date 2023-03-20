@@ -2,6 +2,7 @@ package ru.kata.spring.boot_security.demo.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -17,14 +18,37 @@ public class User {
     @Column(name = "id")
     private int id;
     @Column(name = "username")
-    @NotEmpty(message = "Имя пользователя не должно быть пустым")
-    @Size(min = 2, max = 100, message = "Имя пользователя должно быть от 2 до 100 символов длинной")
+    @NotEmpty(message = "У пользователя должна быть почта")
+    @Size(min = 4, max = 100, message = "Почта должна быть от 4 до 100 символов длинной")
+    @Email(message = "Почта должна быть в формате example@ex.ex")
     private String username;
-    @Column(name = "year_of_birth")
-    @Min(value = 1900, message = "Год рожения должен быть больше, чем 1900")
-    private int yearOfBirth;
+    @Column(name = "age")
+    @Min(value = 0, message = "Возвраст пользователя должен быть больше или равен 0")
+    private int age;
     @Column(name = "password")
     private String password;
+    @Column
+    @NotEmpty(message = "Имя пользователя не может быть пустым")
+    private String firstName;
+    @Column
+    @NotEmpty(message = "Фамилия пользователя не может быть пустой")
+    private String lastName;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
@@ -52,17 +76,35 @@ public class User {
     public User() {
     }
 
-    public User(String username, int yearOfBirth) {
+    public User(String username, int age, String password, String firstName, String lastName) {
         this.username = username;
-        this.yearOfBirth = yearOfBirth;
+        this.age = age;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public User(String username, int yearOfBirth, String password, Set<Role> roles) {
+    public User(String username, int age, String password, String firstName, String lastName, Set<Role> roles) {
         this.username = username;
-        this.yearOfBirth = yearOfBirth;
+        this.age = age;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.roles = roles;
     }
+
+//    public User(String username, int age) {
+//        this.username = username;
+//        this.age = age;
+//    }
+//
+//
+//    public User(String username, int age, String password, Set<Role> roles) {
+//        this.username = username;
+//        this.age = age;
+//        this.password = password;
+//        this.roles = roles;
+//    }
 
     public int getId() {
         return id;
@@ -80,12 +122,12 @@ public class User {
         this.username = username;
     }
 
-    public int getYearOfBirth() {
-        return yearOfBirth;
+    public int getAge() {
+        return age;
     }
 
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
+    public void setAge(int yearOfBirth) {
+        this.age = age;
     }
 
     public String getPassword() {
@@ -101,7 +143,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", yearOfBirth=" + yearOfBirth +
+                ", age=" + age +
                 ", password='" + password + '\'' +
                 '}';
     }
