@@ -83,9 +83,9 @@
                         th:data-bs-target="${'#DELETE'+user.getId()}">
                     Delete
                 </button>
-<!--                <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">-->
-<!--                    <button class="btn btn-danger" type="submit">Delete</button>-->
-<!--                </form>-->
+                <!--                <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">-->
+                <!--                    <button class="btn btn-danger" type="submit">Delete</button>-->
+                <!--                </form>-->
             </td>
             <!--Modal EDIT starts-->
             <div class="modal fade" th:id="${'EditUser'+user.getId()}" data-bs-backdrop="static"
@@ -194,13 +194,17 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <a th:href="@{/admin/deleteUser(userId=${user.getId()})}" type="button"
-                               class="btn btn-danger">Delete</a>
+                            <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
             <!--Modal DELETE ends-->
+            <!--                <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">-->
+            <!--                    <button class="btn btn-danger" type="submit">Delete</button>-->
+            <!--                </form>-->
 
 
     </div>
