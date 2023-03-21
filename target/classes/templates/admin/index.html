@@ -96,8 +96,8 @@
                         </div>
                         <div class="modal-body">
                             <form th:id="'editForm' + ${user.getId()}" class="container-fluid mb-2 "
-                                  th:action="@{/admin/updateUser}" th:object="${user}"
-                                  method="post">
+                                  th:action="@{/admin/{id}(id=${user.id})}" th:object="${user}"
+                                  th:method="PATCH">
                                 <div class="d-grid gap-2 col-6 mx-auto text-center">
                                     <input type="hidden" th:value="${user.id}" th:name="id">
 
@@ -126,12 +126,6 @@
                                             aria-label="multiple select"
                                             th:attr="id='#rolesToEdit' + ${user.getId()}"
                                             name="userRoles">
-<!--                                        <option th:selected="${user.getRole()}"-->
-<!--                                                th:each="r : ${user.getRole()}"-->
-<!--                                                th:text="${r.name}"-->
-<!--                                                th:value="${r.name.toString()}">roles-->
-<!--                                        </option>-->
-
                                         <option th:selected="${user.getRole().contains(r)}"
                                                 th:each="r : ${allRoles}"
                                                 th:text="${r.name}"
