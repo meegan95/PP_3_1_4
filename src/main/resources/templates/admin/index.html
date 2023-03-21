@@ -83,7 +83,7 @@
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </td>
-            <!--            модальное сюда-->
+            <!--Modal EDIT starts-->
             <div class="modal fade" th:id="${'EditUser'+user.getId()}" data-bs-backdrop="static"
                  data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
@@ -122,14 +122,14 @@
                                            th:name="password"
                                            th:value="${user.password}">
 
-                                        <select id="editUserRoles" class="form-select" required
-                                                name="roles" multiple size="2">
-                                            <option th:each="role: ${allRoles}"
-                                                    th:value="${role.getId()}">
-                                                <th:block th:text="${role.getName()}">
-                                                </th:block>
-                                            </option>
-                                        </select>
+                                    <select id="editUserRoles" class="form-select" required
+                                            name="roles" multiple size="2">
+                                        <option th:each="role: ${allRoles}"
+                                                th:value="${role.getId()}">
+                                            <th:block th:text="${role.getName()}">
+                                            </th:block>
+                                        </option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <!--            модальное сюда-->
+            <!--Modal EDIT ends-->
         </tr>
 
 
