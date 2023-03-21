@@ -33,16 +33,31 @@
         </div>
     </div>
 </div>
-
-
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" th:href="@{/admin}">Users table</a>
+<!--Вкладки-->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                type="button" role="tab" aria-controls="home" aria-selected="true">Users table
+        </button>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" th:href="@{/admin/new}">Create new user</a>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                type="button" role="tab" aria-controls="profile" aria-selected="false">New user
+        </button>
     </li>
 </ul>
+
+<!--<div class="tab-content" id="myTabContent">-->
+    
+
+<!--<ul class="nav nav-tabs">-->
+<!--    <li class="nav-item">-->
+<!--        <a class="nav-link active" aria-current="page" th:href="@{/admin}">Users table</a>-->
+<!--    </li>-->
+<!--    <li class="nav-item">-->
+<!--        <a class="nav-link" th:href="@{/admin/new}">New user</a>-->
+<!--    </li>-->
+<!--</ul>-->
 <!--Table Users-->
 <table class="table table-striped">
     <caption style="caption-side: top;">
@@ -83,9 +98,6 @@
                         th:data-bs-target="${'#DELETE'+user.getId()}">
                     Delete
                 </button>
-<!--                <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">-->
-<!--                    <button class="btn btn-danger" type="submit">Delete</button>-->
-<!--                </form>-->
             </td>
             <!--Modal EDIT starts-->
             <div class="modal fade" th:id="${'EditUser'+user.getId()}" data-bs-backdrop="static"
@@ -194,20 +206,14 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-<!--                            <a th:href="@{/admin/{id}(id=${user.getId()})}" type="button"-->
-<!--                               class="btn btn-danger">Delete</a>-->
-                                            <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
-                                                <button class="btn btn-danger" type="submit">Delete</button>
-                                            </form>
+                            <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
             <!--Modal DELETE ends-->
-            <!--                <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">-->
-            <!--                    <button class="btn btn-danger" type="submit">Delete</button>-->
-            <!--                </form>-->
-
 
     </div>
     </tr>
