@@ -164,18 +164,18 @@
 
                             <p/>
 
-<!--                            <label class="container-fluid col-6"-->
-<!--                                   for="editUserRoles">-->
-<!--                                <strong>Role</strong>-->
-<!--                                <select id="editUserRoles" class="form-select"-->
-<!--                                        name="roles" multiple size="2">-->
-<!--                                    <option th:each="role: ${rolesAdd}"-->
-<!--                                            th:value="${role.getId()}">-->
-<!--                                        <th:block th:text="${role.getRole()}">-->
-<!--                                        </th:block>-->
-<!--                                    </option>-->
-<!--                                </select>-->
-<!--                            </label>-->
+                            <label class="container-fluid col-6"
+                                   for="editUserRoles">
+                                <strong>Role</strong>
+                                <select id="editUserRoles" class="form-select"
+                                        name="roles" multiple size="2">
+                                    <option th:each="role: ${rolesAdd}"
+                                            th:value="${role.getId()}">
+                                        <th:block th:text="${role.getName()}">
+                                        </th:block>
+                                    </option>
+                                </select>
+                            </label>
                         </div>
                     </div>
                 </div>

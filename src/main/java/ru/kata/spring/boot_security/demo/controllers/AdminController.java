@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.User;
+import ru.kata.spring.boot_security.demo.services.RolesService;
 import ru.kata.spring.boot_security.demo.services.UserService;
 
 import javax.validation.Valid;
@@ -18,10 +19,11 @@ public class AdminController {
 
 
     private final UserService userService;
-
+    private final RolesService rolesService;
     @Autowired
-    public AdminController(UserService userService) {
+    public AdminController(UserService userService, RolesService rolesService) {
         this.userService = userService;
+        this.rolesService= rolesService;
     }
 
 
@@ -30,6 +32,7 @@ public class AdminController {
         model.addAttribute("users", userService.findAll());
         model.addAttribute("admin", userService.getPersonByUsername(principal.getName()));
         model.addAttribute("user", userService.getPersonByUsername(principal.getName()));
+        model.addAttribute("rolesAdd", rolesService.getRoles());
         return "admin/index";
 
     }
