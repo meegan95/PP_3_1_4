@@ -29,6 +29,7 @@ public class AdminController {
     public String index(Model model, Principal principal) {
         model.addAttribute("users", userService.findAll());
         model.addAttribute("admin", userService.getPersonByUsername(principal.getName()));
+        model.addAttribute("user", userService.getPersonByUsername(principal.getName()));
         return "admin/index";
 
     }
