@@ -78,18 +78,6 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @RequestMapping("/admin/updateUser")
-    public String updateUser(@ModelAttribute("user") User user, @RequestParam("userRoles") String[] userRoles) {
-        List<Role> roleSet = Arrays.stream(userRoles)
-                .map(rolesService::getRoleByName)
-                .collect(Collectors.toList());
-
-        user.setRoles((Set<Role>) roleSet);
-        userService.save(user);
-
-        return "redirect:/admin";
-    }
-
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.delete(id);

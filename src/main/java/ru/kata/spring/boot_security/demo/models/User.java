@@ -113,7 +113,7 @@ public class User {
         return age;
     }
 
-    public void setAge(int yearOfBirth) {
+    public void setAge(int age) {
         this.age = age;
     }
 
