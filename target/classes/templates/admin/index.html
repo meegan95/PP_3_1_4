@@ -71,6 +71,16 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Запустить модальное окно
             </button>
+
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"-->
+<!--            th:data-bs-target="${'#exampleModal'+user.id}">-->
+<!--                Запустить модальное окно-->
+<!--            </button>-->
+
+<!--            <button type="button" class="btn btn-info" data-bs-toggle="modal"-->
+<!--                    data-bs-target="#modalEdit" style="color: white"-->
+<!--                    th:data-bs-target="${'#modalEdit'+user.id}">Edit-->
+<!--            </button>-->
         </td>
         <td><form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
             <button class="btn btn-danger" type="submit">Delete</button>
@@ -84,13 +94,11 @@
     </tbody>
 </table>
 
-
-
-
-<!-- Modal -->
+<!-- My Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -163,7 +171,9 @@
                                            placeholder="Password"
                                            th:value="${user.password}" required>
                                 </label>
+
                             <p/>
+
 <!--                            <label class="container-fluid col-6"-->
 <!--                                   for="editUserRoles">-->
 <!--                                <strong>Role</strong>-->
@@ -212,6 +222,7 @@
 <!--                </form>-->
 
 <!--end-->
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -222,6 +233,7 @@
 
                 <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
