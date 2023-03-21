@@ -122,16 +122,33 @@
                                            th:name="password"
                                            th:value="${user.password}">
 
-                                    <select class="form-select" required multiple
-                                            aria-label="multiple select"
-                                            th:attr="id='#rolesToEdit' + ${user.getId()}"
-                                            name="userRoles">
-                                        <option th:selected="${user.getRole().contains(r)}"
-                                                th:each="r : ${allRoles}"
-                                                th:text="${r.name}"
-                                                th:value="${r.name}">roles
-                                        </option>
-                                    </select>
+<!--                                    <select class="form-select" required multiple-->
+<!--                                            aria-label="multiple select"-->
+<!--                                            th:attr="id='#rolesToEdit' + ${user.getId()}"-->
+<!--                                            name="userRoles">-->
+<!--&lt;!&ndash;                                        <option th:selected="${user.getRole()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                th:each="r : ${allRoles}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                th:text="${r.name}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                th:value="${r.name}">roles&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </option>&ndash;&gt;-->
+<!--                                        <option th:each="role: ${allRoles}"-->
+<!--                                                th:value="${role.getId()}">-->
+<!--                                            <th:block th:text="${role.getName()}">-->
+<!--                                            </th:block>-->
+<!--                                        </option>-->
+<!--                                    </select>-->
+<!--                                    <label class="container-fluid col-6"-->
+<!--                                           for="editUserRoles">-->
+<!--                                        <strong>Role</strong>-->
+                                        <select id="editUserRoles" class="form-select"
+                                                name="roles" multiple size="2">
+                                            <option th:each="role: ${allRoles}"
+                                                    th:value="${role.getId()}">
+                                                <th:block th:text="${role.getName()}">
+                                                </th:block>
+                                            </option>
+                                        </select>
+                                    </label>
                                 </div>
                             </form>
                         </div>

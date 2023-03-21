@@ -121,17 +121,15 @@
                                     <input type="password" class=" mb-2 form-control"
                                            th:name="password"
                                            th:value="${user.password}">
-
-                                    <select class="form-select" required multiple
-                                            aria-label="multiple select"
-                                            th:attr="id='#rolesToEdit' + ${user.getId()}"
-                                            name="userRoles">
-                                        <option th:selected="${user.getRole().contains(r)}"
-                                                th:each="r : ${allRoles}"
-                                                th:text="${r.name}"
-                                                th:value="${r.name}">roles
-                                        </option>
-                                    </select>
+                                        <select id="editUserRoles" class="form-select"
+                                                name="roles" multiple size="2">
+                                            <option th:each="role: ${allRoles}"
+                                                    th:value="${role.getId()}">
+                                                <th:block th:text="${role.getName()}">
+                                                </th:block>
+                                            </option>
+                                        </select>
+                                    </label>
                                 </div>
                             </form>
                         </div>
