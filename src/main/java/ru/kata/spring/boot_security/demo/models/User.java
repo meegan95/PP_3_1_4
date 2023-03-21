@@ -93,19 +93,6 @@ public class User {
         this.roles = roles;
     }
 
-//    public User(String username, int age) {
-//        this.username = username;
-//        this.age = age;
-//    }
-//
-//
-//    public User(String username, int age, String password, Set<Role> roles) {
-//        this.username = username;
-//        this.age = age;
-//        this.password = password;
-//        this.roles = roles;
-//    }
-
     public int getId() {
         return id;
     }
