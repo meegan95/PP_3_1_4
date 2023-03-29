@@ -28,8 +28,7 @@ public class AdminCreator {
             HashSet<Role> roles = new HashSet<>();
             roles.add(new Role("ROLE_ADMIN"));
             roles.add(new Role("ROLE_USER"));
-//                public User(String username, int age, String password, String firstName, String lastName, Set<Role> roles)
-            usersRepository.save(new User("admin@admin.com", 1999,
+            usersRepository.save(new User("admin@admin.com", 25,
                     "admin", "John","Snow", roles));
         } catch (Exception e) {/*ignore*/}
     }
@@ -38,7 +37,7 @@ public class AdminCreator {
         try {
             HashSet<Role> roles = new HashSet<>();
             roles.add(new Role("ROLE_USER"));
-            usersRepository.save(new User("user@user.com", 1999,
+            usersRepository.save(new User("user@user.com", 23,
                     "user","Spider","Man", roles));
         } catch (Exception e) {/*ignore*/}
     }

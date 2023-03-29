@@ -2,10 +2,7 @@ package ru.kata.spring.boot_security.demo.models;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,8 +21,10 @@ public class User {
     private String username;
     @Column(name = "age")
     @Min(value = 0, message = "Возвраст пользователя должен быть больше или равен 0")
+    @Max(value = 130, message = "Возраст может быть не больше 130, так устроена природа:(")
     private int age;
     @Column(name = "password")
+    @NotEmpty
     private String password;
     @Column
     @NotEmpty(message = "Имя пользователя не может быть пустым")
