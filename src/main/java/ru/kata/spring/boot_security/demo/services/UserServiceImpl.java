@@ -2,6 +2,7 @@ package ru.kata.spring.boot_security.demo.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.models.User;
@@ -39,12 +40,14 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void save(User user) {
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         usersRepository.save(user);
     }
 
     @Transactional
     public void update(int id, User updatedUser) {
         updatedUser.setId(id);
+        updatedUser.setPassword(new BCryptPasswordEncoder().encode(updatedUser.getPassword()));
         usersRepository.save(updatedUser);
     }
 
