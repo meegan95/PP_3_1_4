@@ -153,7 +153,8 @@
                                                                        th:value="${user.username}">
 
                                                                 <p class="h6 ">Password</p>
-                                                                <input type="password" class=" mb-2 form-control" required
+                                                                <input type="password" class=" mb-2 form-control"
+                                                                       required
                                                                        th:name="password"
                                                                        th:value="${user.password}">
 
@@ -245,125 +246,125 @@
                 </div>
             </div>
         </div>
-            <!--New user starts/-->
-            <div class="tab-pane fade" id="new" role="tabpanel"
-                 aria-labelledby="new-tab">
-                <h5 class="card-header">Add new user</h5>
-                <div class="card-body text-center">
-                    <div class="form-justify-content-center mx-auto col-4">
-                        <form id="formNewUser" name="formNewUser"
-                              th:action="@{/admin}"
-                              th:object="${newUser}"
-                              method="POST">
-                            <p>
-                                <label class="container-fluid col-6" for="firstName">
-                                    <strong>First Name</strong>
-                                    <input class="form-control" type="text"
-                                           name="firstName" id="firstName"
-                                           placeholder="First name"
-                                           th:field="${newUser.firstName}" required>
-                                </label>
-                            </p>
-
-                            <p>
-                                <label class="container-fluid col-6" for="lastName">
-                                    <strong>Last Name</strong>
-                                    <input class="form-control" type="text"
-                                           name="name" id="lastName"
-                                           placeholder="Last name"
-                                           th:field="${newUser.lastName}" required>
-                                </label>
-                            </p>
-
-                            <p>
-                                <label class="container-fluid col-6" for="age">
-                                    <strong>Age</strong>
-                                    <input class="form-control" type="text"
-                                           name="name" id="age"
-                                           placeholder="Age"
-                                           th:field="${newUser.age}" required>
-                                </label>
-                            </p>
-
-                            <p>
-                                <label class="container-fluid col-6" for="username">
-                                    <strong>Email</strong>
-                                    <input class="form-control" type="email"
-                                           name="username" id="username"
-                                           placeholder="Email"
-                                           th:method="newUser.name."
-                                           th:field="${newUser.username}" required>
-                                </label>
-                            </p>
-
-                            <p>
-                                <label class="container-fluid col-6" for="password">
-                                    <strong>Password</strong>
-                                    <input class="form-control password" type="password"
-                                           name="password" id="password"
-                                           placeholder="Password"
-                                           th:field="${newUser.password}" required>
-                                </label>
-                            </p>
-
-                            <label class="container-fluid col-6"
-                                   for="my_roles">
-                                <strong>Role</strong>
-                                <select id="my_roles" class="form-select"
-                                        name="roles" multiple size="2">
-                                    <option th:each="role: ${allRoles}" th:value="${role.getId()}">
-                                        <th:block th:text="${role.getName()}">
-                                        </th:block>
-                                    </option>
-                                </select>
+        <!--New user starts/-->
+        <div class="tab-pane fade" id="new" role="tabpanel"
+             aria-labelledby="new-tab">
+            <h5 class="card-header">Add new user</h5>
+            <div class="card-body text-center">
+                <div class="form-justify-content-center mx-auto col-4">
+                    <form id="formNewUser" name="formNewUser"
+                          th:action="@{/admin}"
+                          th:object="${newUser}"
+                          method="POST">
+                        <p>
+                            <label class="container-fluid col-6" for="firstName">
+                                <strong>First Name</strong>
+                                <input class="form-control" type="text"
+                                       name="firstName" id="firstName"
+                                       placeholder="First name"
+                                       th:field="${newUser.firstName}" required>
                             </label>
-                            <p>
-                                <button type="submit" id="newUserButton" class="btn btn-success">Add new user
-                                </button>
-                            </p>
+                        </p>
 
-                        </form>
-                    </div>
+                        <p>
+                            <label class="container-fluid col-6" for="lastName">
+                                <strong>Last Name</strong>
+                                <input class="form-control" type="text"
+                                       name="name" id="lastName"
+                                       placeholder="Last name"
+                                       th:field="${newUser.lastName}" required>
+                            </label>
+                        </p>
+
+                        <p>
+                            <label class="container-fluid col-6" for="age">
+                                <strong>Age</strong>
+                                <input class="form-control" type="text"
+                                       name="name" id="age"
+                                       placeholder="Age"
+                                       th:field="${newUser.age}" required>
+                            </label>
+                        </p>
+
+                        <p>
+                            <label class="container-fluid col-6" for="username">
+                                <strong>Email</strong>
+                                <input class="form-control" type="email"
+                                       name="username" id="username"
+                                       placeholder="Email"
+                                       th:method="newUser.name."
+                                       th:field="${newUser.username}" required>
+                            </label>
+                        </p>
+
+                        <p>
+                            <label class="container-fluid col-6" for="password">
+                                <strong>Password</strong>
+                                <input class="form-control password" type="password"
+                                       name="password" id="password"
+                                       placeholder="Password"
+                                       th:field="${newUser.password}" required>
+                            </label>
+                        </p>
+
+                        <label class="container-fluid col-6"
+                               for="my_roles">
+                            <strong>Role</strong>
+                            <select id="my_roles" class="form-select"
+                                    name="roles" multiple size="2">
+                                <option th:each="role: ${allRoles}" th:value="${role.getId()}">
+                                    <th:block th:text="${role.getName()}">
+                                    </th:block>
+                                </option>
+                            </select>
+                        </label>
+                        <p>
+                            <button type="submit" id="newUserButton" class="btn btn-success">Add new user
+                            </button>
+                        </p>
+
+                    </form>
                 </div>
-
             </div>
-            <!--New user ends/-->
 
-            <!--About user starts-->
-            <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
-                <h1>User information-page</h1>
-                <div class="card">
-                    <div class="card-header">
-                        <h5>About user</h5>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">First name</th>
-                                <th scope="col">Last name</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Role</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td th:text="${admin.getId}"></td>
-                                <td th:text="${admin.getFirstName()}"></td>
-                                <td th:text="${admin.getLastName()}"></td>
-                                <td th:text="${admin.getAge()}"></td>
-                                <td th:text="${admin.getUsername()}"></td>
-                                <td th:text="${admin.getRole()}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--About user ends-->
+        </div>
+        <!--New user ends/-->
+
+        <!--About user starts-->
+        <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+            <h1>User information-page</h1>
+            <div class="card">
+                <div class="card-header">
+                    <h5>About user</h5>
                 </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td th:text="${admin.getId}"></td>
+                            <td th:text="${admin.getFirstName()}"></td>
+                            <td th:text="${admin.getLastName()}"></td>
+                            <td th:text="${admin.getAge()}"></td>
+                            <td th:text="${admin.getUsername()}"></td>
+                            <td th:text="${admin.getRole()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--About user ends-->
             </div>
         </div>
+    </div>
 
 </div>
 <!--New user ends-->
