@@ -1,35 +1,17 @@
 package ru.kata.spring.boot_security.demo.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ru.kata.spring.boot_security.demo.models.Role;
-import ru.kata.spring.boot_security.demo.repositories.RolesRepository;
 
 import java.util.List;
 
-@Service
-public class RolesService {
+public interface RolesService {
 
-    private final RolesRepository rolesRepository;
+    List<Role> getRoles();
 
-    @Autowired
-    public RolesService(RolesRepository rolesRepository) {
-        this.rolesRepository = rolesRepository;
-    }
+    Role getRoleByName(String name);
 
-    public List<Role> getRoles() {
-        return rolesRepository.findAll();
-    }
+    void saveRole(Role role);
 
-    public Role getRoleByName(String name) {
-        return rolesRepository.findRoleByName(name).orElse(null);
-    }
-    public void saveRole(Role role) {
-        rolesRepository.save(role);
-    }
-
-    public void removeRoleById(int id) {
-        rolesRepository.deleteById(id);
-    }
+    void removeRoleById(int id);
 
 }
