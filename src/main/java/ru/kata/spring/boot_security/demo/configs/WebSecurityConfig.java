@@ -26,8 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().hasAnyRole("ADMIN", "USER")
+                .antMatchers("/admin/**").hasRole("ROLE_ADMIN")
+                .anyRequest().hasAnyRole("ROLE_ADMIN", "ROLE_USER")
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/process_login")
@@ -46,9 +46,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    GrantedAuthorityDefaults grantedAuthorityDefaults() {
-//        return new GrantedAuthorityDefaults(""); // Удалить префикс ROLE_
-//    }
+    @Bean
+    GrantedAuthorityDefaults grantedAuthorityDefaults() {
+        return new GrantedAuthorityDefaults(""); // Удалить префикс ROLE_
+    }
 
 }

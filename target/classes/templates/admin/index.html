@@ -21,7 +21,7 @@
         <div class="col-11 p-2">
                 <span class="text-white h5">
                     <th:block class="font-weight-normal"
-                              th:text="${admin.getUsername()} + ', with roles: '+ ${admin.role}">
+                              th:text="${admin.getUsername()} + ', with roles: '+ ${admin.roleToString()}">
                         text
                     </th:block>
                 </span>
