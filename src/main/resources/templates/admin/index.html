@@ -21,7 +21,7 @@
         <div class="col-11 p-2">
                 <span class="text-white h5">
                     <th:block class="font-weight-normal"
-                              th:text="${admin.getUsername()} + ', with roles: '+ ${admin.getRole()}">
+                              th:text="${admin.getUsername()} + ', with roles: '+ ${admin.role}">
                         text
                     </th:block>
                 </span>
@@ -133,27 +133,27 @@
                                                                 <input type="hidden" th:value="${user.id}" th:name="id">
 
                                                                 <p class="h6">First name</p>
-                                                                <input type="text" class=" mb-2 form-control"
+                                                                <input type="text" class=" mb-2 form-control" required
                                                                        th:name="firstName"
                                                                        th:value="${user.firstName}">
 
                                                                 <p class="h6">Last name</p>
-                                                                <input type="text" class="  mb-2 form-control"
+                                                                <input type="text" class="  mb-2 form-control" required
                                                                        th:name="lastName"
                                                                        th:value="${user.lastName}">
 
                                                                 <p class="h6">Age</p>
-                                                                <input type="number" class="mb-2 form-control"
+                                                                <input type="number" class="mb-2 form-control" required
                                                                        th:name="age"
                                                                        th:value="${user.age}">
 
                                                                 <p class="h6 ">Email</p>
-                                                                <input type="email" class=" mb-2 form-control"
+                                                                <input type="email" class=" mb-2 form-control" required
                                                                        th:name="username"
                                                                        th:value="${user.username}">
 
                                                                 <p class="h6 ">Password</p>
-                                                                <input type="password" class=" mb-2 form-control"
+                                                                <input type="password" class=" mb-2 form-control" required
                                                                        th:name="password"
                                                                        th:value="${user.password}">
 
@@ -291,6 +291,7 @@
                                     <input class="form-control" type="text"
                                            name="username" id="username"
                                            placeholder="Email"
+                                           th:method="newUser.name."
                                            th:field="${newUser.username}" required>
                                 </label>
                             </p>

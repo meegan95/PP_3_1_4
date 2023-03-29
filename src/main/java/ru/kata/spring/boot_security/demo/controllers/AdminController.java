@@ -1,6 +1,7 @@
 package ru.kata.spring.boot_security.demo.controllers;
 
 
+import com.zaxxer.hikari.HikariConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RolesService;
 import ru.kata.spring.boot_security.demo.services.UserService;
+import ru.kata.spring.boot_security.demo.util.UsersValidator;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -25,10 +27,12 @@ public class AdminController {
 
     private final UserService userService;
     private final RolesService rolesService;
+    private final UsersValidator usersValidator;
     @Autowired
-    public AdminController(UserService userService, RolesService rolesService) {
+    public AdminController(UserService userService, RolesService rolesService, UsersValidator usersValidator) {
         this.userService = userService;
         this.rolesService= rolesService;
+        this.usersValidator = usersValidator;
     }
 
 
@@ -56,9 +60,8 @@ public class AdminController {
 
     @PostMapping
     public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "admin/new";
-        }
+        usersValidator.validate(user, bindingResult);
+        if (bindingResult.hasErrors()) return "/admin/index";
         userService.save(user);
         return "redirect:/admin";
     }
@@ -70,11 +73,7 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult
-            , @PathVariable("id") int id) {
-        if (bindingResult.hasErrors()) {
-            return "admin/edit";
-        }
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userService.update(id, user);
         return "redirect:/admin";
     }

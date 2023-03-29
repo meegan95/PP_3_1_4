@@ -15,22 +15,15 @@ public class User {
     @Column(name = "id")
     private int id;
     @Column(name = "username")
-    @NotEmpty(message = "У пользователя должна быть почта")
-    @Size(min = 4, max = 100, message = "Почта должна быть от 4 до 100 символов длинной")
-    @Email(message = "Почта должна быть в формате example@ex.ex")
+    @Email
     private String username;
     @Column(name = "age")
-    @Min(value = 0, message = "Возвраст пользователя должен быть больше или равен 0")
-    @Max(value = 130, message = "Возраст может быть не больше 130, так устроена природа:(")
     private int age;
     @Column(name = "password")
-    @NotEmpty
     private String password;
     @Column
-    @NotEmpty(message = "Имя пользователя не может быть пустым")
     private String firstName;
     @Column
-    @NotEmpty(message = "Фамилия пользователя не может быть пустой")
     private String lastName;
 
     public String getFirstName() {
@@ -124,6 +117,11 @@ public class User {
         this.password = password;
     }
 
+    public String getRoleWithout(){
+        StringBuilder stringBuilder = null;
+        stringBuilder.append(getRole()).deleteCharAt(5);
+        return stringBuilder.toString();
+    }
     @Override
     public String toString() {
         return "User{" +
