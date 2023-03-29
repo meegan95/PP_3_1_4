@@ -32,6 +32,7 @@ public class AdminController {
         model.addAttribute("admin", userService.getPersonByUsername(principal.getName()));
         model.addAttribute("user", userService.getPersonByUsername(principal.getName()));
         model.addAttribute("allRoles", rolesService.getRoles());
+        model.addAttribute("role", rolesService.getRoleByName(principal.getName()));
         model.addAttribute("newUser", new User());
         return "admin/index";
 
