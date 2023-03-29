@@ -4,14 +4,11 @@ package ru.kata.spring.boot_security.demo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RolesService;
 import ru.kata.spring.boot_security.demo.services.UserService;
-import ru.kata.spring.boot_security.demo.util.UsersValidator;
 
-import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
@@ -21,12 +18,11 @@ public class AdminController {
 
     private final UserService userService;
     private final RolesService rolesService;
-    private final UsersValidator usersValidator;
+
     @Autowired
-    public AdminController(UserService userService, RolesService rolesService, UsersValidator usersValidator) {
+    public AdminController(UserService userService, RolesService rolesService) {
         this.userService = userService;
         this.rolesService= rolesService;
-        this.usersValidator = usersValidator;
     }
 
 

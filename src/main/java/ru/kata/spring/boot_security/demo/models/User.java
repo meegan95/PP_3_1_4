@@ -2,7 +2,6 @@ package ru.kata.spring.boot_security.demo.models;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.util.HashSet;
 import java.util.Set;
 
