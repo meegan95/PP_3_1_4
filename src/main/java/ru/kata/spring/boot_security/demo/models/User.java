@@ -7,15 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users",
-        uniqueConstraints = {@UniqueConstraint(columnNames = "username")})      // уникальный логин
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "username")
-    @Email
     private String username;
     @Column(name = "age")
     private int age;
@@ -117,11 +115,6 @@ public class User {
         this.password = password;
     }
 
-    public String getRoleWithout(){
-        StringBuilder stringBuilder = null;
-        stringBuilder.append(getRole()).deleteCharAt(5);
-        return stringBuilder.toString();
-    }
     @Override
     public String toString() {
         return "User{" +

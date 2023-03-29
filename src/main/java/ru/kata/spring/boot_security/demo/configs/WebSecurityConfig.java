@@ -53,17 +53,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.expressionHandler(new DefaultWebSecurityExpressionHandler() {
-            @Override
-            protected SecurityExpressionOperations createSecurityExpressionRoot(Authentication authentication, FilterInvocation fi) {
-                WebSecurityExpressionRoot root = (WebSecurityExpressionRoot) super.createSecurityExpressionRoot(authentication, fi);
-                root.setDefaultRolePrefix(""); // Удалить префикс ROLE_
-                return root;
-            }
-        });
-    }
-
 
 }
