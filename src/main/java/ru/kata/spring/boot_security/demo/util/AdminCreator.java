@@ -29,7 +29,7 @@ public class AdminCreator {
             HashSet<Role> roles = new HashSet<>();
             roles.add(new Role("ROLE_ADMIN"));
             roles.add(new Role("ROLE_USER"));
-            usersRepository.save(new User("admin@admin.com", 25,
+            usersRepository.save(new User("admin@mail.ru", 25,
                     encodePassword("admin"), "John","Snow", roles));
         } catch (Exception e) {/*ignore*/}
     }
@@ -38,7 +38,7 @@ public class AdminCreator {
         try {
             HashSet<Role> roles = new HashSet<>();
             roles.add(new Role("ROLE_USER"));
-            usersRepository.save(new User("user@user.com", 23,
+            usersRepository.save(new User("user@mail.ru", 23,
                     encodePassword("user"),"Spider","Man", roles));
         } catch (Exception e) {/*ignore*/}
     }
