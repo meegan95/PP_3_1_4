@@ -21,7 +21,7 @@
         <div class="col-11 p-2">
                 <span class="text-white h5">
                     <th:block class="font-weight-normal"
-                              th:text="${user.getUsername()} + ', with roles: '+ ${user.getRole()}">
+                              th:text="${user.getUsername()} + ', with roles: '+ ${user.roleToString()}">
                         text
                     </th:block>
                 </span>
@@ -70,7 +70,7 @@
                             <td th:text="${user.getLastName()}"></td>
                             <td th:text="${user.getAge()}"></td>
                             <td th:text="${user.getUsername()}"></td>
-                            <td th:text="${user.getRole()}"></td>
+                            <td th:text="${user.roleToString()}"></td>
                         </tr>
                         </tbody>
                     </table>
