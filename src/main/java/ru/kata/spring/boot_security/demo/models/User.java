@@ -128,7 +128,7 @@ public class User {
         StringBuilder sb = new StringBuilder();
         for(Role role: roles){
             sb.append(role.getName()).append(" ");
-
+            sb.delete(0, 5);
         }
         return sb.toString();
     }
