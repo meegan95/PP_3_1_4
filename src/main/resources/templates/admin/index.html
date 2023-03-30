@@ -161,7 +161,7 @@
                                                                         name="roles" multiple size="2">
                                                                     <option th:each="role: ${allRoles}"
                                                                             th:value="${role.getId()}">
-                                                                        <th:block th:text="${role.getName()}">
+                                                                        <th:block th:text="${role.getRoleName()}">
                                                                         </th:block>
                                                                     </option>
                                                                 </select>
@@ -216,7 +216,7 @@
                                                                 <select class=" mb-2 form-select" size="2" disabled>
                                                                     <option th:each="role: ${allRoles}"
                                                                             th:value="${role.getId()}">
-                                                                        <th:block th:text="${role.getName()}">
+                                                                        <th:block th:text="${role.getRoleName()}">
                                                                         </th:block>
                                                                     </option>
                                                                 </select>
@@ -312,7 +312,7 @@
                             <select id="my_roles" class="form-select"
                                     name="roles" multiple size="2">
                                 <option th:each="role: ${allRoles}" th:value="${role.getId()}">
-                                    <th:block th:text="${role.getName()}">
+                                    <th:block th:text="${role.getRoleName()}">
                                     </th:block>
                                 </option>
                             </select>
@@ -355,7 +355,7 @@
                             <td th:text="${admin.getLastName()}"></td>
                             <td th:text="${admin.getAge()}"></td>
                             <td th:text="${admin.getUsername()}"></td>
-                            <td th:text="${admin.getRole()}"></td>
+                            <td th:text="${admin.roleToString()}"></td>
                         </tr>
                         </tbody>
                     </table>

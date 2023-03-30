@@ -38,13 +38,22 @@ public class Role implements GrantedAuthority {
     }
 
     public String getName() {
+//        StringBuilder sb = new StringBuilder();
+//
+//            sb.append(name).append(" ");
+//            sb.delete(0,5);
+//
+//        return sb.toString();
+        return name;
+    }
+
+    public String getRoleName() {
         StringBuilder sb = new StringBuilder();
 
-            sb.append(name).append(" ");
-            sb.delete(0,5);
+        sb.append(name).append(" ");
+        sb.delete(0, 5);
 
         return sb.toString();
-//        return name;
     }
 
     public void setName(String name) {
