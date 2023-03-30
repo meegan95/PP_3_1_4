@@ -38,12 +38,6 @@ public class Role implements GrantedAuthority {
     }
 
     public String getName() {
-//        StringBuilder sb = new StringBuilder();
-//
-//            sb.append(name).append(" ");
-//            sb.delete(0,5);
-//
-//        return sb.toString();
         return name;
     }
 
@@ -95,13 +89,5 @@ public class Role implements GrantedAuthority {
             return false;
         return true;
     }
-//    public String roleToString(){
-//        StringBuilder sb = new StringBuilder();
-//        for(Role role: roles){
-//            sb.append(role.getName()).append(" ");
-//            sb.delete(0,5);
-//        }
-//        return sb.toString();
-//    }
 
 }
