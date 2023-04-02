@@ -40,8 +40,10 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void save(User user) {
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-        usersRepository.save(user);
+        if (getPersonByUsername(user.getUsername()) == null) {
+            user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+            usersRepository.save(user);
+        }
     }
 
     @Transactional
