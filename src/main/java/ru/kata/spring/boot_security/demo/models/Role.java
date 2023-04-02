@@ -47,7 +47,7 @@ public class Role implements GrantedAuthority {
         sb.append(name).append(" ");
         sb.delete(0, 5);
 
-        return sb.toString();
+        return sb.toString().replace("[","").replace("]","");
     }
 
     public void setName(String name) {

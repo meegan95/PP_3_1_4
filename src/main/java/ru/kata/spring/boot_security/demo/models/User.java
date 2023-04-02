@@ -134,7 +134,7 @@ public class User {
 //        }
 //        return sb.toString();
 //    }
-    public List<String> roleToString() {
+    public String roleToString() {
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         for (Role role : roles) {
@@ -142,7 +142,7 @@ public class User {
             sb.delete(0, 5);
             list.add(sb.toString());
         }
-        return list;
+        return list.toString().replace("[","").replace("]","").replace("ROLE_","");
     }
 
 }

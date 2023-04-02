@@ -160,10 +160,16 @@
                                                                 <select id="editUserRoles" class="form-select" required
                                                                         name="roles" multiple size="2">
                                                                     <option th:each="role: ${allRoles}"
-                                                                            th:value="${role.getId()}">
-                                                                        <th:block th:text="${role.getRoleName()}">
-                                                                        </th:block>
+                                                                            th:value="${role.getId()}"
+                                                                            th:text="${role.getRoleName()}">
+<!--                                                                        <th:block th:text="${role.getRoleName()}">-->
+<!--                                                                        </th:block>-->
                                                                     </option>
+<!--                                                                    <option th:each="role: ${allRoles}"-->
+<!--                                                                            th:value="${role.getId()}">-->
+<!--                                                                        <th:block th:text="${role.getRoleName()}">-->
+<!--                                                                        </th:block>-->
+<!--                                                                    </option>-->
                                                                 </select>
                                                             </div>
                                                         </form>
