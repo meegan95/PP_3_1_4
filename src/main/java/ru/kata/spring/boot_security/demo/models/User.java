@@ -2,7 +2,9 @@ package ru.kata.spring.boot_security.demo.models;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -124,12 +126,23 @@ public class User {
                 '}';
     }
 
-    public String roleToString(){
+    //    public String roleToString(){
+//        StringBuilder sb = new StringBuilder();
+//        for(Role role: roles){
+//            sb.append(role.getName()).append(" ");
+//            sb.delete(0, 5);
+//        }
+//        return sb.toString();
+//    }
+    public List<String> roleToString() {
+        List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
-        for(Role role: roles){
+        for (Role role : roles) {
             sb.append(role.getName()).append(" ");
             sb.delete(0, 5);
+            list.add(sb.toString());
         }
-        return sb.toString();
+        return list;
     }
+
 }
