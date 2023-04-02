@@ -155,15 +155,16 @@
                                                                 <p class="h6 ">Password</p>
                                                                 <input type="password" class=" mb-2 form-control"
                                                                        required
-                                                                       th:name="password">
+                                                                       th:name="password"
+                                                                       th:value="${user.password}">
 
                                                                 <select id="editUserRoles" class="form-select" required
                                                                         name="roles" multiple size="2">
                                                                     <option th:each="role: ${allRoles}"
-                                                                            th:value="${role.getId()}">
-                                                                        <th:block th:text="${role.getRoleName()}">
-                                                                        </th:block>
+                                                                            th:value="${role.getId()}"
+                                                                            th:text="${role.getRoleName()}">
                                                                     </option>
+
                                                                 </select>
                                                             </div>
                                                         </form>
